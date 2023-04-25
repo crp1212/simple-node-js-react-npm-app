@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-          // label 'windows'
+          label 'windows'
           // image 'mcr.microsoft.com/powershell'
           image 'node:lts-buster-slim'
           args '-p 3000:3000'
