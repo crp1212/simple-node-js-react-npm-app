@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
           // image 'mcr.microsoft.com/powershell'
-          image '07f4e626c252'
+          image 'node:14.5.0-slim'
           args '-p 3000:3000'
         }
     }
@@ -23,8 +23,8 @@ pipeline {
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './jenkins/scripts/kill.sh'
+                // input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                // sh './jenkins/scripts/kill.sh'
             }
         }
     }
